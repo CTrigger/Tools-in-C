@@ -18,7 +18,7 @@ int main()
 	if (colunaA == linhaB)
 	{
 		float MatrizA[linhaA][colunaA], MatrizB[linhaB][colunaB], MatrizResposta[colunaB][linhaA];
-		int i,j,k,l,m,n;
+		int i,j,k;
 		
 		//grava os valores da Matriz A
 		puts("-------------------------------------------------------");
@@ -87,6 +87,6 @@ int main()
 	{
 		puts("Matrizes desproporcionais, impossivel multiplicar");
 	}
-	
+	//system("pause"); //Para usuarios Windows.
 	return 0;
 }
