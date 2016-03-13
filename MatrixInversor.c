@@ -1,6 +1,6 @@
 /*
-  Status: NOT READY, works on nearly 95% of cases for Matrix of N x N
-  Name: MatrizInversa
+	Status: NOT READY,works on 95% of the cases for Matrix of N x N
+	Name: MatrizInversa
 	Copyright: Ricardo Kim
 	Author: Ricardo Kim
 	Date: 13/03/16 18:13 (Brazil)
@@ -11,9 +11,9 @@
 int main()
 {
 	int proportion;
-	freopen( "test3.txt", "r", stdin ); 
+	//freopen( "input.txt", "r", stdin ); 
 	
-	printf("Type matrix square proportion (one number) \n");
+	printf("Type [N]umber, for matrix N x N \nthat's means one number!\n");
 	scanf("%d", &proportion);
 	
 	/*Defines the proportion of the matrix*/
@@ -22,9 +22,11 @@ int main()
 	int line,column;
 
 	for (line = 1 ; line <= proportion; line++)
-		for ( column = 1 ; column <= proportion ; column++)
+	{
+		printf("Input the line %d\n", line);
+		for ( column = 1 ; column <= proportion ; column++)			
 			scanf("%f", &M[line][column]);
-				
+	}
 	
 	puts("=========Matrix=Printing================");
 	for (line = 1 ; line <= proportion; line++)
