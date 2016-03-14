@@ -63,52 +63,53 @@ int main()
 		}	
 		puts("========================================");
 		
-		/*Matriz Sort when any value position in the main diagonal as 0*/
-		/*Ordenação de matriz para quando algum valor na diagonal principal for 0*/
-		/*Selection Sort*/
-		float tmp_M[1][proportion*2];
-		int tmp_line,search_line,tmp_column,sort_flag = 0;
-		for(line = 1 ; line <= proportion ; line ++)
-			for(column = 1;column <= proportion *2;column ++)
-				if(line == column && M[line][column]==0 ) /*Test for the stats*/
-				{
-					sort_flag = 1;	/*inform when was needed*/
-					for(tmp_line = line ; tmp_line <= proportion ; tmp_line++) 
-						if	(M[tmp_line][column] != 0 && M[tmp_line][tmp_line] != 0) /*Select the best line swap*/
-						{
-							search_line = tmp_line;
-							break;
-						}
-					
-					for(tmp_column = 1; tmp_column <= proportion * 2; tmp_column ++)
-						tmp_M[1][tmp_column] = M[line][tmp_column];	/*Backup entire line*/
-			
-					for(tmp_column = 1; tmp_column <= proportion * 2; tmp_column ++)
-						M[line][tmp_column] = M[search_line][tmp_column]; /*Move best line to the actual line*/
-					
-					for(tmp_column = 1; tmp_column <= proportion * 2; tmp_column ++)
-						M[search_line][tmp_column] = tmp_M[1][tmp_column]; /*Insert the backup into best line */
-						
-				}
-				
-		if (sort_flag==1)
-		{
-			/*Imprime após ordenação*/
-			puts("=========Matrix=After=Sort==============");		
-			for (line = 1 ; line <= proportion; line++)
-			{
-				for ( column = 1 ; column <= proportion*2 ; column++)
-					printf("%.3f\t", M[line][column]);		
-				puts("");
-			}	
-			puts("========================================");	
-		}
+		
 		
 		float guide;
 		int lineBase;
 		for (lineBase = 1 ; lineBase <= proportion ; lineBase++)
 		{	
 		
+			/*Matriz Sort when any value position in the main diagonal as 0*/
+			/*Ordenação de matriz para quando algum valor na diagonal principal for 0*/
+			/*Selection Sort*/
+			float tmp_M[1][proportion*2];
+			int tmp_line,search_line,tmp_column,sort_flag = 0;
+			for(line = 1 ; line <= proportion ; line ++)
+				for(column = 1;column <= proportion *2;column ++)
+					if(line == column && M[line][column]==0 ) /*Test for the stats*/
+					{
+						sort_flag = 1;	/*inform when was needed*/
+						for(tmp_line = line ; tmp_line <= proportion ; tmp_line++) 
+							if	(M[tmp_line][column] != 0 && M[tmp_line][tmp_line] != 0) /*Select the best line swap*/
+							{
+								search_line = tmp_line;
+								break;
+							}
+						
+						for(tmp_column = 1; tmp_column <= proportion * 2; tmp_column ++)
+							tmp_M[1][tmp_column] = M[line][tmp_column];	/*Backup entire line*/
+				
+						for(tmp_column = 1; tmp_column <= proportion * 2; tmp_column ++)
+							M[line][tmp_column] = M[search_line][tmp_column]; /*Move best line to the actual line*/
+						
+						for(tmp_column = 1; tmp_column <= proportion * 2; tmp_column ++)
+							M[search_line][tmp_column] = tmp_M[1][tmp_column]; /*Insert the backup into best line */
+							
+					}
+					
+			if (sort_flag==1)
+			{
+				/*Imprime após ordenação*/
+				puts("=========Matrix=After=Sort==============");		
+				for (line = 1 ; line <= proportion; line++)
+				{
+					for ( column = 1 ; column <= proportion*2 ; column++)
+						printf("%.3f\t", M[line][column]);		
+					puts("");
+				}	
+				puts("========================================");	
+			}
 			/*Gaussian Elinination - in all lines except the base line*/
 			/*Eliminação Gaussiana - em todas as linhas exceto a linha base*/
 			for(line = 1 ; line <= proportion ; line++)
