@@ -80,7 +80,7 @@ int main()
 					if(line == column && M[line][column]==0 ) /*Test for the stats*/
 					{
 						sort_flag = 1;	/*inform when was needed*/
-						for(tmp_line = line ; tmp_line <= proportion ; tmp_line++) 
+						for(tmp_line = 1 ; tmp_line <= proportion ; tmp_line++) 
 							if	(M[tmp_line][column] != 0 && M[tmp_line][tmp_line] != 0) /*Select the best line swap*/
 							{
 								search_line = tmp_line;
